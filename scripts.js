@@ -1,3 +1,5 @@
+const bodyTag = document.querySelector('body');
+
 barba.use(barbaCss);
 barba.init({
   transitions: [
@@ -18,6 +20,17 @@ barba.init({
           top: 0,
           behavior: 'smooth'
         });
+      }
+    }
+  ],
+  views: [
+    {
+      namespace: 'feed',
+      beforeEnter() {
+        bodyTag.classList.add('feed');
+      },
+      beforeLeave() {
+        bodyTag.classList.remove('feed');
       }
     }
   ]
